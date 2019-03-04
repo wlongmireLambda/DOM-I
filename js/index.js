@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png"
   },
   "cta": {
-    "h1": "DOM Is Awesome",
+    "h1": "<h1>DOM <br>Is<br> Awesome</h1>",
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -60,11 +60,11 @@ newH3.textContent = "Navigation:";
 newH3.style.fontSize = '20px';
 addLink.prepend(newH3);
 
-console.log(addLink);
+// console.log(addLink);
 
 
 const ctaH1 = document.querySelectorAll('h1');
-ctaH1[0].textContent = siteContent.cta.h1;
+ctaH1[0].innerHTML = siteContent.cta.h1;
 
 
 const btn = document.querySelectorAll('button');
@@ -94,3 +94,22 @@ pTags[8].textContent = siteContent["footer"]["copyright"];
 
 const midImg = document.getElementById("middle-img");
 midImg.src = siteContent["main-content"]["middle-img-src"];
+
+const footer = document.querySelector('footer');
+// console.log(footer);
+const update = document.createElement('button');
+update.textContent = "update";
+footer.appendChild(update);
+update.style.fontSize = '30px';
+update.style.width = '20%';
+
+update.addEventListener('click', event => {
+  ctaH1[0].innerHTML = "<h1>Content <br>has been<br> Updated</h1>";
+  console.log("yes this works!");
+});
+
+footer.style.display = 'flex';
+// footer.style.alignItems = 'space-around';
+// footer.style.justifyContent = 'space-around';
+footer.style.flexDirection = 'column';
+pTags[8].style.marginBottom = '20px';
